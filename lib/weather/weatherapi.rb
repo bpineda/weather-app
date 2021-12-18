@@ -7,7 +7,7 @@ class WeatherApi
   API_KEY = Rails.application.credentials.weather_api_key
 
 
-  def self.get_weather_by_city
+  def self.get_weather_by_city(city_name)
     puts "Getting weather by city"
     conn = Faraday.new(:url => BASE, :ssl => {:verify => false}) do |faraday|
       faraday.response :logger                  # log requests to $stdout
@@ -15,7 +15,7 @@ class WeatherApi
     end
 
     response = conn.get do |req|
-      req.url "?APPID=e1d8cffa57dce4a2f62da5c0ae1ca519&units=imperial&q=San Jose,us"
+      req.url "?APPID=#{API_KEY}&units=imperial&q=#{city_name}"
     end
 
     response

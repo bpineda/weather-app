@@ -1,0 +1,12 @@
+# ignore .git and .cache folders
+.git
+.cache
+*.md
+!README*.md
+README-secret.md
+.DS_Store
+.gitignore
+.mysql-data
+Capfile
+docker
+docker-compose.yml

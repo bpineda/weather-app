@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+* The application is using the following APIs:
+
++ https://openweathermap.org/
++ https://positionstack.com/

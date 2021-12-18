@@ -11,7 +11,7 @@ class Weather
     city_name = geolocation_json['data'].first['name']
     weather_raw_data = WeatherApi.get_weather_by_city
     weather_json = JSON.parse weather_raw_data.body
-    weather_json['main']
+    weather_json
   end
   
 

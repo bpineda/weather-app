@@ -1,0 +1,160 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=1+Apple+Park+Way+Cupertino%2C+California%2C+95014+United+States&key=<G_API_KEY>
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Sun, 19 Dec 2021 03:35:29 GMT
+      pragma:
+      - no-cache
+      expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      cache-control:
+      - no-cache, must-revalidate
+      vary:
+      - Accept-Language
+      access-control-allow-origin:
+      - "*"
+      x-goog-maps-metro-area:
+      - San Jose, CA
+      server:
+      - mafe
+      x-xss-protection:
+      - '0'
+      x-frame-options:
+      - SAMEORIGIN
+      server-timing:
+      - gfet4t7; dur=37
+      alt-svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443";
+        ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+      transfer-encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "1",
+                       "short_name" : "1",
+                       "types" : [ "street_number" ]
+                    },
+                    {
+                       "long_name" : "Apple Park Way",
+                       "short_name" : "Apple Park Way",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "Cupertino",
+                       "short_name" : "Cupertino",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Santa Clara County",
+                       "short_name" : "Santa Clara County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "California",
+                       "short_name" : "CA",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    },
+                    {
+                       "long_name" : "95014",
+                       "short_name" : "95014",
+                       "types" : [ "postal_code" ]
+                    },
+                    {
+                       "long_name" : "0642",
+                       "short_name" : "0642",
+                       "types" : [ "postal_code_suffix" ]
+                    }
+                 ],
+                 "formatted_address" : "1 Apple Park Way, Cupertino, CA 95014, USA",
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 37.3336383,
+                       "lng" : -122.0106674
+                    },
+                    "location_type" : "ROOFTOP",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 37.33498728029149,
+                          "lng" : -122.0093184197085
+                       },
+                       "southwest" : {
+                          "lat" : 37.33228931970849,
+                          "lng" : -122.0120163802915
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJ3Q0aEfS1j4ARn3_mF2LesZs",
+                 "plus_code" : {
+                    "compound_code" : "8XMQ+FP Cupertino, CA, USA",
+                    "global_code" : "849V8XMQ+FP"
+                 },
+                 "types" : [ "street_address" ]
+              }
+           ],
+           "status" : "OK"
+        }
+  recorded_at: Sun, 19 Dec 2021 03:35:29 GMT
+- request:
+    method: get
+    uri: https://api.openweathermap.org/data/2.5/weather?APPID=<WEATHER_API_KEY>&q=Cupertino&units=imperial
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - openresty
+      date:
+      - Sun, 19 Dec 2021 03:35:29 GMT
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '483'
+      connection:
+      - keep-alive
+      x-cache-key:
+      - "/data/2.5/weather?APPID=<WEATHER_API_KEY>&q=cupertino&units=imperial"
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-credentials:
+      - 'true'
+      access-control-allow-methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":-122.0322,"lat":37.323},"weather":[{"id":801,"main":"Clouds","description":"few
+        clouds","icon":"02n"}],"base":"stations","main":{"temp":43.39,"feels_like":43.39,"temp_min":39.16,"temp_max":47.8,"pressure":1020,"humidity":84},"visibility":10000,"wind":{"speed":1.99,"deg":261,"gust":4},"clouds":{"all":20},"dt":1639884929,"sys":{"type":2,"id":2042351,"country":"US","sunrise":1639840633,"sunset":1639875162},"timezone":-28800,"id":5341145,"name":"Cupertino","cod":200}'
+  recorded_at: Sun, 19 Dec 2021 03:35:29 GMT
+recorded_with: VCR 6.0.0

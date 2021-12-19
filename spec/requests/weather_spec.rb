@@ -1,6 +1,4 @@
 require 'rails_helper'
-# require_relative '../../lib/geolocation/google_api'
-require './lib/geolocation/google_api'
 
 RSpec.describe "Weathers", type: :request do
   describe "GET /index" do

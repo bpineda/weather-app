@@ -14,4 +14,21 @@ City: <%= @city %>
 Current temperature: <%= @temperature %>
 <br/>
 <br/>
+Max temperature: <%= @max %>
+<br/>
+<br/>
+Low temperature: <%= @low %>
+<br/>
+<br/>
+Humidity: <%= @humidity %>
+<br/>
+<br/>
+Zip Code: <%= @zip_code %>
+<br/>
+<br/>
 Date: <%= Time.now %>
+<% if @cached_result %>
+<br/>
+<br/>
+Cached Result
+<% end %>

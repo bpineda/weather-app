@@ -51,6 +51,26 @@ RSpec.describe "Weathers", type: :request do
       expect(response).to have_http_status(:success)
       expect(response.body).to match /Cached Result/
       
+    end
+
+    it "returns displays non-cached result" do
+
+      VCR.use_cassette("geolocalization_call") do
+        get "/search?address=1+Apple+Park+Way+Cupertino%2C+California%2C+95014+United+States&commit=SEARCH"
+        get "/search?address=1+Apple+Park+Way+Cupertino%2C+California%2C+95014+United+States&commit=SEARCH"
+      end
+
+      expect(response).to have_http_status(:success)
+      expect(response.body).to match /Cached Result/
+
+      new_time = Time.now + 1801
+      Timecop.travel(new_time)
+
+      VCR.use_cassette("geolocalization_call") do
+        get "/search?address=1+Apple+Park+Way+Cupertino%2C+California%2C+95014+United+States&commit=SEARCH"
+      end
+
+      expect(response.body).to_not match /Cached Result/      
       
     end
 

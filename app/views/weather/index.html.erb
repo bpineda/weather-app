@@ -5,30 +5,32 @@
   <%= form.text_field :address, :value => @address %>
   <%= form.submit "SEARCH" %>
 <% end %>
-<br/>
-<br/>
-<br/>
-City: <%= @city %>
-<br/>
-<br/>
-Current temperature: <%= @temperature %>
-<br/>
-<br/>
-Max temperature: <%= @max %>
-<br/>
-<br/>
-Low temperature: <%= @low %>
-<br/>
-<br/>
-Humidity: <%= @humidity %>
-<br/>
-<br/>
-Zip Code: <%= @zip_code %>
-<br/>
-<br/>
-Date: <%= Time.now %>
-<% if @cached_result %>
-<br/>
-<br/>
-Cached Result
+<% if @address %>
+  <br/>
+  <br/>
+  <br/>
+  City: <%= @city %>
+  <br/>
+  <br/>
+  Current temperature: <%= @temperature %>
+  <br/>
+  <br/>
+  Max temperature: <%= @max %>
+  <br/>
+  <br/>
+  Low temperature: <%= @low %>
+  <br/>
+  <br/>
+  Humidity: <%= @humidity %>
+  <br/>
+  <br/>
+  Zip Code: <%= @zip_code %>
+  <br/>
+  <br/>
+  Date: <%= Time.now %>
+  <% if @cached_result %>
+  <br/>
+  <br/>
+  Cached Result
+  <% end %>
 <% end %>

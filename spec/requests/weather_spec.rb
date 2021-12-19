@@ -31,6 +31,14 @@ RSpec.describe "Weathers", type: :request do
 
       # get "/search?address=1+Apple+Park+Way+Cupertino%2C+California%2C+95014+United+States&commit=SEARCH"
       expect(response).to have_http_status(:success)
+      expect(response.body).to match /City: Cupertino/
+      expect(response.body).to match /Current temperature: 43.39/
+      expect(response.body).to match /Max temperature: 47.8/
+      expect(response.body).to match /Low temperature: 39.16/
+      expect(response.body).to match /Humidity: 84/
+      expect(response.body).to match /Zip Code: 95014/
+      expect(response.body).to match /Date/
+      
     end
   end
 

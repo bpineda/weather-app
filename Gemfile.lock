@@ -201,6 +201,7 @@ GEM
     stimulus-rails (1.0.2)
       railties (>= 6.0.0)
     thor (1.1.0)
+    timecop (0.9.4)
     turbo-rails (1.0.0)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -240,6 +241,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  timecop
   turbo-rails
   tzinfo-data
   vcr

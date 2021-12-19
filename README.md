@@ -1,29 +1,55 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an application for a job interview.
 
-Things you may want to cover:
+For local setup I recommend using docker, and do the following:
 
-* Ruby version
+Clone the repo. 
 
-* System dependencies
+```
+git clone git@github.com:bpineda/weather-app.git
+cd weather-app
+```
 
-* Configuration
+Request the master.key file to be able to run the server (even locally).
 
-* Database creation
+Build with docker.
 
-* Database initialization
+```
+docker-compose build --no-cache
+```
 
-* How to run the test suite
+Run container with docker.
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+docker-compose up --remove-orphans
+```
 
-* Deployment instructions
+Run migrations on a different shell. Open a new shell, and type:
 
-* ...
+```
+docker container ls
+CONTAINER ID   IMAGE             COMMAND                  CREATED          STATUS          PORTS                    NAMES
+a350c35f24e8   weather-app_app   "entrypoint.sh rails…"   22 seconds ago   Up 20 seconds   0.0.0.0:3000->3000/tcp   weather-app_app_1
+```
+Copy the container-id (first column), and run the migrations:
 
-* The application is using the following APIs:
+```
+docker exec -it a350c35f24e8 rails db:migrate
+== 20211219003144 CreateSearches: migrating ===================================
+-- create_table(:searches)
+   -> 0.0144s
+== 20211219003144 CreateSearches: migrated (0.0145s) ==========================
+```
 
+View the running application on the browser (localhost:3000) or run the tests with the container running:
+
+```
+docker exec -it a350c35f24e8 rspec
+```
+
+The application uses the following APIs
 + https://openweathermap.org/
-+ https://positionstack.com/
++ Google Geolocation services
+
+The application uses a sqlite db that comes with Rails7. It also uses the VCR gem for mocking API calls during the tests and the Timecop gem to simulate time travel (running tests 30 minutes later).

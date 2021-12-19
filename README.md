@@ -53,3 +53,11 @@ The application uses the following APIs
 + Google Geolocation services
 
 The application uses a sqlite db that comes with Rails7. It also uses the VCR gem for mocking API calls during the tests and the Timecop gem to simulate time travel (running tests 30 minutes later).
+
+## TODOs
+
+I did not have enough time the following:
++ UI implementation with a template.
++ Refactoring of the weather_controller since it repeats some of the code instead of using a function.
++ I failed to program for a use case in which an address does not return a Zip Code.
++ I failed to group the cache by zip code. I only cached by address. If 2 different addresses return the same zip code, the app will have 2 separate entries. 

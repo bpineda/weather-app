@@ -44,6 +44,4 @@ class WeatherController < ApplicationController
     end
   end
 
-  def get_by_city
-  end
 end

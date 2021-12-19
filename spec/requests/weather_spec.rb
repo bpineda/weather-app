@@ -1,4 +1,6 @@
 require 'rails_helper'
+# require_relative '../../lib/geolocation/google_api'
+require './lib/geolocation/google_api'
 
 RSpec.describe "Weathers", type: :request do
   describe "GET /index" do
@@ -7,9 +9,17 @@ RSpec.describe "Weathers", type: :request do
       expect(response).to have_http_status(:success)
     end
   end
+  
   describe "GET /search" do
     it "returns http success" do
       get "/search"
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "GET /search" do
+    it "returns http success" do
+      get "/search?address=1+Apple+Park+Way+Cupertino%2C+California%2C+95014+United+States&commit=SEARCH"
       expect(response).to have_http_status(:success)
     end
   end

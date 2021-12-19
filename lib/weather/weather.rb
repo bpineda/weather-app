@@ -1,6 +1,6 @@
 require 'json'
-require 'Google_Api'
-require 'WeatherApi'
+require 'google_api'
+require 'weather_api'
 
 class Weather
 

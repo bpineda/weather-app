@@ -19,7 +19,7 @@ class WeatherController < ApplicationController
 
         @cached_result = true
         elapsed_time = Time.now - search_result.updated_at
-        if elapsed_time > 30
+        if elapsed_time > 1800
           # Fetch results again
           @cached_result = false
           weather = Weather.new
